@@ -42,22 +42,20 @@ in a way the probalility represent risk, the higher the probability the higher t
 
 \subsection{Logistic Regression (Linear Model)}
 
-Logistic Regression is a member of the **Generalized Linear Models (GLM)** family, just like Linear Regression. 
+Logistic Regression is a member of the **Generalized Linear Models (GLM)** family, just like Linear Regression.
 
 Both models examine the linear relationship between the **independent variables** (features/inputs) and the **dependent variable** (target/outcome). However, they differ in the type of outcome they predict:
 
-* **Linear Regression** is used when the outcome is a **continuous** variable.
-* **Logistic Regression** is used when the outcome is a **categorical** variable (typically binary: 0 or 1).
+- **Linear Regression** is used when the outcome is a **continuous** variable.
+- **Logistic Regression** is used when the outcome is a **categorical** variable (typically binary: 0 or 1).
 
 Logistic Regression predicts the **probability** of an event occurring. This probability, denoted as $p$, is bounded between **0 and 1**.
 
 If we tried to model $p$ directly using a linear equation like we do in linear regression:
 
-$$
-p = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_n x_n
-$$
+$$p = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_n x_n$$
 
-we would run into serious problems. A linear model can produce any value between $(-\infty, +\infty)$, but probability must stay within the range **[0, 1]**. This makes direct modeling of probability inappropriate.
+we would run into serious problems. A linear model can produce any value between $(-\infty, +\infty)$, but probability must stay within the range **\[0, 1\]**. This makes direct modeling of probability inappropriate.
 
 Instead of modeling the probability $p$ directly, we model the **odds**:
 
@@ -71,7 +69,6 @@ Odds can take any value from **0 to +∞**. However, this range is still not ide
 
 - It is not symmetric,
 - It cannot produce negative values.
-
 
 To solve this, we take the **natural logarithm** of the odds. This transformation gives us the **logit function** (also called log-odds):
 
@@ -92,7 +89,7 @@ where:
 - $x_1, x_2, \dots, x_n$ are the input features,
 - $\beta_0, \beta_1, \dots, \beta_n$ are the model coefficients (parameters).
 
-We can rearrange the equation to express the probability $ p $ directly:
+We can rearrange the equation to express the probability \$ p \$ directly:
 
 $$
 p = \frac{1}{1 + e^{-(\beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_n x_n)}}
@@ -108,7 +105,7 @@ where $z = \beta_0 + \beta_1 x_1 + \dots + \beta_n x_n$ is the linear combinatio
 
 By applying the sigmoid function to the linear predictor, we obtain a valid probability that always lies between **0 and 1**.
 
-![Sigmoid Transformation](sigmoid.png){width=70%}
+![Sigmoid Transformation](sigmoid.png){width="70%"}
 
 \subsection{Tree-Based Models (Non-Linear)}
 
@@ -116,14 +113,11 @@ These are non-parametric supervised learning algorithms that use a hierarchical 
 
 Tree-based models are particularly useful for capturing non-linear relationships and interactions between variables without requiring strict statistical assumptions.(**No mathematical equations**)
 
-* **Decision Tree**:
-    This model consists of a single tree used to make predictions.
-* **Random Forest**:
-    This model consists of many decision trees used for prediction, where the final prediction is typically obtained by averaging the predictions from all the trees.
-* **Gradient Boosting Machine**:
-    This model also uses many trees; however, each new tree is built to learn from and correct the mistakes made by the previous trees, improving the overall predictive performance.
+- **Decision Tree**: This model consists of a single tree used to make predictions.
+- **Random Forest**: This model consists of many decision trees used for prediction, where the final prediction is typically obtained by averaging the predictions from all the trees.
+- **Gradient Boosting Machine**: This model also uses many trees; however, each new tree is built to learn from and correct the mistakes made by the previous trees, improving the overall predictive performance.
 
-![Tree Base Model](trees.png){width=70%}
+![Tree Base Model](trees.png){width="70%"}
 
 \subsection{Neural Networks (Non-Linear)}
 
@@ -131,16 +125,12 @@ A neural network is a machine learning model that stacks simple computational un
 
 At a high level, neural networks are inspired by biological neurons in the human brain, which communicate through electrical signals.
 
-The structure of an artificial feed-forward neural network can be represented by the recursive expression:
-$$
-\mathbf{a}^{(l)} = \sigma_l\left(\mathbf{W}_l^T \mathbf{a}^{(l-1)} + \mathbf{b}^{(l)}\right), \quad l = 1,2,\dots,L
-$$
-where:
+The structure of an artificial feed-forward neural network can be represented by the recursive expression: $$\mathbf{a}^{(l)} = \sigma_l\left(\mathbf{W}_l^T \mathbf{a}^{(l-1)} + \mathbf{b}^{(l)}\right), \quad l = 1,2,\dots,L$$ where:
 
-* $\mathbf{a}^{(l)}$ is the vector of activation values at layer $l$,
-* $\mathbf{W}_l$ is the weight matrix for layer  $l$,
-*  $\mathbf{b}^{(l)}$ is the bias vector for layer  $l$,
-* and $\sigma_l$ is the activation function applied at layer  $l$.
+- $\mathbf{a}^{(l)}$ is the vector of activation values at layer $l$,
+- $\mathbf{W}_l$ is the weight matrix for layer $l$,
+- $\mathbf{b}^{(l)}$ is the bias vector for layer $l$,
+- and $\sigma_l$ is the activation function applied at layer $l$.
 
 The initial layer, $\mathbf{a}^{(0)}$, represents the input features for a particular observation, usually denoted by:
 
@@ -152,18 +142,17 @@ Just like in logistic regression, the **activation function** applied at the fin
 
 The sigmoid activation function maps the output to a value between 0 and 1, allowing it to be interpreted as a probability of default.
 
-![Artificial Neural Network](neural.png){width=70%}
+![Artificial Neural Network](neural.png){width="70%"}
 
 \subsection{Others(Non-Linear)}
 
 The following are other methods that can also be used:
 
-* Support vector machine
-* K-Nearest Neighbors (KNN)
-* Naïve Bayes
+- Support vector machine
+- K-Nearest Neighbors (KNN)
+- Naïve Bayes
 
 \subsection{Complexity and Interpretability}
-
 
 So we can see that logistic regression and decision trees are simple models and do not involve many complicated processes that we can lose track of. This means that these models are interpretable. However, they are not very strong at capturing complex structures.
 
@@ -171,23 +160,17 @@ We also see that in random forests, gradient boosting machines, and neural netwo
 
 \subsection{Weights of Evidence(WoE) and Information Value (IV)}
 
-* **Weight of Evidence (WoE):**
-  It is a measure of the strength of a feature (independent variable) in separating non-events and events. In our case, it measures how well a feature can separate good and bad loan applications.
+- **Weight of Evidence (WoE):** It is a measure of the strength of a feature (independent variable) in separating non-events and events. In our case, it measures how well a feature can separate good and bad loan applications.
 
-$$
-\text{WoE}_i = \ln\left(\frac{\% \text{ of non-events}_i}{\% \text{ of events}_i}\right)
-= \ln\left(\frac{\text{Distribution of Good}_i}{\text{Distribution of Bad}_i}\right)
-$$
+$$\text{WoE}_i = \ln\left(\frac{\% \text{ of non-events}_i}{\% \text{ of events}_i}\right)
+= \ln\left(\frac{\text{Distribution of Good}_i}{\text{Distribution of Bad}_i}\right)$$
 
 $i$ is refer to the ith bin/category
 
-* **Information Value (IV):**
-  It is used to measure the predictive power of independent variables. It helps us understand which independent variables provide the most useful information about the target variable. IV is commonly used as a variable selection technique when the dependent variable (target) is binary, meaning it has only two possible values.
+- **Information Value (IV):** It is used to measure the predictive power of independent variables. It helps us understand which independent variables provide the most useful information about the target variable. IV is commonly used as a variable selection technique when the dependent variable (target) is binary, meaning it has only two possible values.
 
 $$
-\text{IV} = \sum_{i=1}^{n} \left( \text{WoE}_i \times \left( \% \text{ of non-events}_i - \% \text{ of events}_i \right) \right)
-$$
-
+\text{IV} = \sum_{i=1}^{n} \left( \text{WoE}_i \times \left( \% \text{ of non-events}_i - \% \text{ of events}_i \right) \right)$$
 
 So, **Weight of Evidence (WoE)** is important in credit modelling because we typically use **logistic regression**, which assumes a linear relationship between the **log-odds of the target variable** and the input features.
 
@@ -203,11 +186,10 @@ So, the **positive class** is the event we are modelling, which is a bad loan ap
 
 Many metrics that follow are defined from the **confusion matrix**:
 
-* **True Positive (TP):** The actual event is default, and the model predicts default.
-* **False Negative (FN):** The actual event is default, however the model predicts non-default.
-* **False Positive (FP):** The actual event is non-default, however the model predicts default.
-* **True Negative (TN):** The actual event is non-default, and the model predicts non-default.
-
+- **True Positive (TP):** The actual event is default, and the model predicts default.
+- **False Negative (FN):** The actual event is default, however the model predicts non-default.
+- **False Positive (FP):** The actual event is non-default, however the model predicts default.
+- **True Negative (TN):** The actual event is non-default, and the model predicts non-default.
 
 \begin{table}[h]
 \centering
@@ -289,56 +271,55 @@ It was also observed that the variables \textbf{home\_ownership} and \textbf{loa
 
 \section{Exploratory Data Analysis(EDA)}
 
-![Target Distribution](Target.png){width=70%}
+![Target Distribution](Target.png){width="70%"}
 
-We start by looking at the \textbf{target distribution}. From the target distribution diagram, we can see that people who defaulted make up 15.44\% of the dataset, while non-defaults account for 84.56\%. This shows that the dataset is imbalanced and further implies that there are many good customers and relatively few bad customers.
+We start by looking at the \textbf{target distribution}. From the target distribution diagram, we can see that people who defaulted make up 15.44% of the dataset, while non-defaults account for 84.56%. This shows that the dataset is imbalanced and further implies that there are many good customers and relatively few bad customers.
 
-![Annual Income](annual_income.png){width=70%}
+![Annual Income](annual_income.png){width="70%"}
 
 Next, we consider the histogram of annual income. From the histogram, we can observe that there are many tall bars on the left side and fewer bars spread across the right side. This indicates that annual income is right-skewed (has a long right tail) and may contain potential outliers. This suggests that most people earn lower incomes, while only a few people earn very high incomes.
 
 Now consider the WoE plot (shown in red). We can observe that the red line generally increases from one bin to another, indicating that the risk of default decreases as annual income increases. Although the relationship is not perfectly monotonic, this is likely because some bins at the higher income levels contain very few customers. For example, if a bin contains only one customer and that customer defaulted, the WoE value may fluctuate significantly. This explains why the red line becomes unstable in the later bins.
 
-![Age](age.png){width=70%}
+![Age](age.png){width="70%"}
 
 The histogram for age appears approximately normally distributed, with a larger concentration of younger applicants around age 21. The WoE plot (red line) is consistently increasing, showing the monotonic relationship that we expect. However, the curve increases at a decreasing rate, suggesting a non-linear relationship between age and the log-odds of default.
 
 The increasing WoE trend indicates that as age increases, the risk of default decreases. This suggests that younger applicants are generally more likely to default than older applicants.
 
-![Employment Duration (Years)](employ.png){width=70%}
+![Employment Duration (Years)](employ.png){width="70%"}
 
 For employment duration, the histogram shows a slight right tail, with most people having employment durations between 0 and 10 years. The WoE plot (red line) generally increases, although it is not perfectly monotonic. The curved shape suggests that employment duration is not perfectly linearly related to the log-odds.
 
 The increasing trend implies that as employment duration increases, the risk of default decreases. This suggests that early-career professionals are generally more likely to default compared to more experienced individuals.
 
-![Number of Opened Accounts](num_open.png){width=70%}
+![Number of Opened Accounts](num_open.png){width="70%"}
 
 The histogram for the number of opened accounts appears approximately normally distributed, with most people having around 8 opened accounts. The WoE plot forms a quadratic-like shape, suggesting that the variable does not have a linear relationship with the log-odds, but rather a non-linear relationship.
 
 This indicates that when customers have very few accounts, opening additional accounts may initially reduce risk. However, after reaching approximately 8 accounts, the risk of default begins to increase again as more accounts are opened. This suggests that both very low and very high numbers of opened accounts may be associated with higher default risk, although having too many accounts appears riskier.
 
-![Credit Utilisation Percentage](credit_util.png){width=70%}
+![Credit Utilisation Percentage](credit_util.png){width="70%"}
 
-The distribution of credit utilisation percentage appears approximately normally distributed, with many customers using around 41\% of their available credit. The WoE plot is consistently decreasing, showing a monotonic relationship, although it is not perfectly linear because the curve is slightly curved.
+The distribution of credit utilisation percentage appears approximately normally distributed, with many customers using around 41% of their available credit. The WoE plot is consistently decreasing, showing a monotonic relationship, although it is not perfectly linear because the curve is slightly curved.
 
 The decreasing WoE trend indicates that as credit utilisation increases, the risk of default also increases. This implies that customers who use a smaller proportion of their available credit are generally less risky than those with high credit utilisation.
 
-![Interest Rate](interest.png){width=70%}
+![Interest Rate](interest.png){width="70%"}
 
-For interest rate, the distribution appears approximately normal, with most customers being charged around a 12\% interest rate. The WoE plot generally decreases, which is the monotonic relationship we expect, although there is some zig-zag behaviour at the extreme bins that may be due to potential outliers.
+For interest rate, the distribution appears approximately normal, with most customers being charged around a 12% interest rate. The WoE plot generally decreases, which is the monotonic relationship we expect, although there is some zig-zag behaviour at the extreme bins that may be due to potential outliers.
 
 This suggests that interest rate has a relatively linear relationship with the log-odds of default. We can further conclude that higher interest rates are associated with a higher risk of default. In other words, when loans become less affordable, borrowers are more likely to default.
 
-![Age vs Months Since The Oldest Account](age_vs_older.png){width=70%}
+![Age vs Months Since The Oldest Account](age_vs_older.png){width="70%"}
 
 Age is positively and linearly related to months since the oldest account. This means that older individuals tend to have older credit accounts. The relationship suggests a strong correlation between the two variables.
 
-
 \section{Feature Engineering Choices}
 
-For feature engineering, we first consider \textbf{annual\_income}. Since the variable was right-skewed and contained potential outliers, a new variable called \texttt{log\_annual\_income\_capped} was created. First, the \texttt{annual\_income} variable was capped to reduce the effect of extreme outliers, and then a logarithmic transformation was applied to the capped values. The logarithmic transformation helps improve the relationship between annual income and the log-odds by making the relationship more linear.
+For feature engineering, we first consider \textbf{annual\_income}. Since the variable was right-skewed and contained potential outliers, a new variable called \texttt{log\_annual\_income\_capped} was created. First, the \texttt{annual\_income} variable was capped to reduce the effect of extreme outliers, and then a logarithmic transformation was applied to the capped values. The logarithmic transformation helps improve the relationship between annual income and the log-odds by making the relationship more linear. the variables \texttt{total\_revolving\_balance} and \texttt{loan\_amount} where also applied logarithmic transformation.
 
-For the variables \texttt{age}, \texttt{home\_ownership}, \texttt{num\_open\_accounts}, \texttt{credit\_utilisation\_pct}, and \texttt{employment\_length\_years}, the exploratory data analysis showed that these features had non-linear relationships with the log-odds of default. To better capture these relationships, new transformed variables ending with \texttt{\_WoE} were created, for example \texttt{feature\_WoE}.
+For the variables \texttt{age}, \texttt{num\_open\_accounts}, \texttt{credit\_utilisation\_pct}, and \texttt{employment\_length\_years}, the exploratory data analysis showed that these features had non-linear relationships with the log-odds of default. To better capture these relationships, new transformed variables ending with \texttt{\_WoE} were created, for example \texttt{feature\_WoE}.
 
 For each variable, the values were separated into bins, and each observation was replaced with the corresponding Weight of Evidence (WoE) value for the bin to which it belonged. This transformation helps capture non-linear relationships while also making the variables more suitable for logistic regression.
 
@@ -348,7 +329,7 @@ For this credit risk model, logistic regression was selected as the primary mode
 
 In addition, logistic regression produces predicted probabilities, which can be used to support lending decisions such as whether to approve or reject a loan application.
 
-The dataset was split into training and testing sets using the variable named \texttt{set} in the data. The training set contains 70\% of the observations, while the testing set contains the remaining 30\%.
+The dataset was split into training and testing sets using the variable named \texttt{set} in the data. The training set contains 70% of the observations, while the testing set contains the remaining 30%.
 
 A baseline logistic regression model was first fitted after removing all forbidden features. Thereafter, additional engineered features were added one at a time to evaluate whether they improved model performance. This process continued until all newly engineered features had been assessed.
 
@@ -360,7 +341,7 @@ The final logistic regression model obtained is and variables where scaled:
 
 $$
 \begin{aligned}
-\log\left(\frac{p}{1-p}\right) =\;& -0.4318 \\
+\log\left(\frac{p}{1-p}\right) =\;& -0.4299 \\
 &-0.5754(\text{log\_annual\_income\_capped}) \\
 &+0.5387(\text{num\_delinquencies\_2yr}) \\
 &-0.3895(\text{age\_woe}) \\
@@ -370,17 +351,14 @@ $$
 &-0.2371(\text{employment\_length\_years\_woe}) \\
 &+0.1012(\text{dti\_ratio}) \\
 &-0.0907(\text{pct\_accounts\_current}) \\
-&+0.0835(\text{interest\_rate}) \\
-&-0.0430(\text{home\_WoE}) \\
-&+0.0262(\text{loan\_amount})
-\end{aligned}
-$$
+&-0.0246(\text{log\_total\_revolving\_balance})\\
+&+0.0179(\text{log\_loan\_amount})
+\end{aligned}$$
 
 The estimated intercept of the model is:
 
 $$
-\beta_0 = -0.4068
-$$
+\beta_0 = -0.4299$$
 
 The odds ratios corresponding to each coefficient are shown below:
 
@@ -398,13 +376,10 @@ $$
 \text{employment\_length\_years\_woe} & -0.2371 & 0.789 \\
 \text{dti\_ratio} & 0.1012 & 1.107 \\
 \text{pct\_accounts\_current} & -0.0907 & 0.913 \\
-\text{interest\_rate} & 0.0835 & 1.087 \\
-\text{home\_WoE} & -0.0430 & 0.958 \\
-\text{loan\_amount} & 0.0262 & 1.027 \\
+\text{log\_total\_revolving\_balance} & -0.0246 & 0.976 \\
+\text{log\_loan\_amount} &  0.0179 & 1.018  \\
 \hline
-\end{array}
-$$
-
+\end{array}$$
 
 \section{Interpretation of the Final Logistic Regression Model}
 
@@ -432,18 +407,16 @@ The odds ratios describe the multiplicative change in the odds of default associ
 
     \item \textbf{pct\_accounts\_current} has a negative coefficient ($-0.0907$), implying that borrowers with a higher proportion of current accounts are generally less risky.
 
-    \item \textbf{interest\_rate} has a positive coefficient ($0.0835$), suggesting that higher interest rates are associated with higher default risk.
+    \item \textbf{log\_total\_revolving\_balance} has a positive coefficient ($-0.0246$), suggesting that higher total revolving balance are associated with lowering default risk.
 
-    \item \textbf{home\_WoE} has a small negative coefficient ($-0.0430$), indicating a relatively weak relationship with default risk.
-
-    \item \textbf{loan\_amount} has a positive coefficient ($0.0262$), suggesting that larger loan amounts slightly increase default risk.
+    \item \textbf{log\_loan\_amount} has a positive coefficient ($0.0179$), suggesting that larger loan amounts slightly increase default risk.
 
 \end{itemize}
 
-
 \section{Performance Relative to Baseline}
 
-The current logistic regression model achieved an AUC of 0.72, outperforming the baseline logistic regression model (AUC = 0.68).
+The current logistic regression model achieved an AUC of 0.79, outperforming the baseline logistic regression model (AUC = 0.68).
 
-* **Absolute improvement**: +0.04
-* **Relative improvement**: +5.9% over the baseline
+* Absolute improvement: +0.11
+
+* Relative improvement: +16.18\% over the baseline
