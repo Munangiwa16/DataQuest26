@@ -1,0 +1,34 @@
+---
+title: "Update on the app and requirements"
+author: "Munangiwa Gift Lithole"
+format: pdf
+editor: visual
+---
+
+
+The previous app code contained a bug in the `bivariate_explorer` function. On line 728, the code incorrectly used `with sidebar` instead of `with st.sidebar`. I have corrected this issue, so the app should now run without problems.
+
+To run the application, the following packages must be installed:
+
+* pandas
+* numpy
+* matplotlib
+* seaborn
+* scipy
+* streamlit
+* scikit-learn
+* streamlit-option-menu
+
+You can install all required packages using the provided `requirements.txt` file by running the following command in the terminal:
+
+```bash 
+pip install -r requirements.txt
+```
+
+To launch the application, run the following command in the terminal:
+
+```bash 
+streamlit run app.py
+```
+
+

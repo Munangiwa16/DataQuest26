@@ -1,0 +1,22 @@
+---
+title: "Update on Credit Risk Modeling"
+author: "Munangiwa Gift Lithole"
+format: pdf
+editor: visual
+---
+
+You might notice an inconsistency between the AUC reported in the app and the AUC shown in the slides, modelling summary, and Jupyter notebook. I made a mistake in the Jupyter notebook when using the `roc_auc_score` function. Instead of passing only the predicted probabilities for the default class (1D array), I incorrectly passed the full 2D probability matrix containing probabilities for both non-default and default classes. This resulted in a lower AUC of 0.72 than the actual value, which then carried over into the slides and modelling summary.
+
+However, the correct approach is to use only the predicted probabilities of the default class, which yields an AUC of 0.79. This is consistent with the result shown in the app, where I used a different method that also allowed me to plot the ROC curve and produced the same AUC of 0.79.
+
+Therefore, the correct AUC of the final model is **0.79**.
+
+**Updated Section for Slides and Modelling Summary**
+
+\section{Performance Relative to Baseline}
+
+The current logistic regression model achieved an AUC of 0.79, outperforming the baseline logistic regression model (AUC = 0.68).
+
+* Absolute improvement: +0.11
+* Relative improvement: +16.18\% over the baseline
+
