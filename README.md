@@ -1,6 +1,6 @@
 # Credit Risk Modeling Project DataQuest 26
 
-This repository contains a credit risk modeling analysis built on a loan book dataset. The project includes data cleaning, exploratory analysis, feature engineering, and logistic regression modeling for predicting borrower default risk. The challage was to improve logisistic regression using Feature Engineering. The **baseline model** had an **AUC of 0.68** and **my logistic regression** managed to **improve** **AUC to 0.79** . 
+This repository contains a credit risk modeling analysis built on a loan book dataset. The project includes data cleaning, exploratory analysis, feature engineering, and logistic regression modeling for predicting borrower default risk. The challenge was to improve logistic regression using feature engineering. The **baseline model** had an **AUC of 0.68** and **the final logistic regression** improved **AUC to 0.79**. 
 
 ## Exploratory Data Analysis
 
@@ -12,6 +12,7 @@ An Interactive app was built for EDA: [Smart View](https://smart-view.streamlit.
 - `data/loan_book.csv` - Loan application dataset used for the analysis.
 - `reports/Modeling_Summary_Munangiwa.qmd` - Quarto summary report with credit risk concepts, data cleaning approach, EDA findings, and modeling rationale.
 - `reports/Modeling_Summary_Munangiwa.pdf` - Rendered PDF version of the summary report.
+- `reports/Credit_Risk_Modeling_Report.md` - Project summary report with methods, results, and recommendations.
 - `requirements.txt` - Python package dependencies required to run the notebook and analysis.
 - Images used in the report:
   - `images/Target.png`
