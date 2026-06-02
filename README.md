@@ -2,6 +2,10 @@
 
 This repository contains a credit risk modeling analysis built on a loan book dataset. The project includes data cleaning, exploratory analysis, feature engineering, and logistic regression modeling for predicting borrower default risk.
 
+## Exploratory Data Analysis
+
+An Interactive app was built for EDA:[Smart View](https://smart-view.streamlit.app/)
+
 ## Project Contents
 
 - `notebooks/Credit_Modeling.ipynb` - Main Jupyter notebook with data preparation, feature engineering, model training, evaluation, and coefficient analysis.
