@@ -1,6 +1,6 @@
 # Credit Risk Modeling Project DataQuest 26
 
-This repository contains a credit risk modeling analysis built on a loan book dataset. The project includes data cleaning, exploratory analysis, feature engineering, and logistic regression modeling for predicting borrower default risk. The challage was to improve logisistic regression using Feature Engineering. The **baseline model** had an **AUC of 0.68** and **my logistic regression** managed to **improve** **AUC to 0,79**
+This repository contains a credit risk modeling analysis built on a loan book dataset. The project includes data cleaning, exploratory analysis, feature engineering, and logistic regression modeling for predicting borrower default risk. The challage was to improve logisistic regression using Feature Engineering. The **baseline model** had an **AUC of 0.68** and **my logistic regression** managed to **improve** **AUC to 0.79** . 
 
 ## Exploratory Data Analysis
 
