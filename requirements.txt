@@ -1,20 +1,7 @@
-<<<<<<< HEAD
 pandas
 numpy
 matplotlib
 seaborn
 scikit-learn
-=======
-pandas
-numpy
-matplotlib
-seaborn
-<<<<<<< HEAD
-scipy
-streamlit
-scikit-learn
-streamlit-option-menu
->>>>>>> 86ba81b (new rep)
-=======
-scikit-learn
->>>>>>> 2505904 (new)
+
+

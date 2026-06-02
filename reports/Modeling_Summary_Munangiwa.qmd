@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ---
 title: "Credit Risk Modeling"
 author: "Munangiwa Gift Lithole"
@@ -60,9 +59,7 @@ we would run into serious problems. A linear model can produce any value between
 
 Instead of modeling the probability $p$ directly, we model the **odds**:
 
-$$
-\text{odds} = \frac{p}{1 - p}
-$$
+$$\text{odds} = \frac{p}{1 - p}$$
 
 where $p$ is the probability of the event occurring.
 
@@ -73,17 +70,13 @@ Odds can take any value from **0 to +∞**. However, this range is still not ide
 
 To solve this, we take the **natural logarithm** of the odds. This transformation gives us the **logit function** (also called log-odds):
 
-$$
-\text{logit}(p) = \ln\left(\frac{p}{1-p}\right)
-$$
+$$\text{logit}(p) = \ln\left(\frac{p}{1-p}\right)$$
 
 The logit function has a very useful property: it maps probabilities from (0, 1) to the entire real number line **(-∞, +∞)**. This makes it suitable for linear modeling.
 
 We can now assume a linear relationship between the **log-odds** and the independent variables (features):
 
-$$
-\ln\left(\frac{p}{1-p}\right) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_n x_n
-$$
+$$\ln\left(\frac{p}{1-p}\right) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_n x_n$$
 
 where:
 
@@ -92,15 +85,11 @@ where:
 
 We can rearrange the equation to express the probability \$ p \$ directly:
 
-$$
-p = \frac{1}{1 + e^{-(\beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_n x_n)}}
-$$
+$$p = \frac{1}{1 + e^{-(\beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_n x_n)}}$$
 
 This is known as the **sigmoid function** (or logistic function):
 
-$$
-\sigma(z) = \frac{1}{1 + e^{-z}}
-$$
+$$\sigma(z) = \frac{1}{1 + e^{-z}}$$
 
 where $z = \beta_0 + \beta_1 x_1 + \dots + \beta_n x_n$ is the linear combination of the features.
 
@@ -135,9 +124,7 @@ The structure of an artificial feed-forward neural network can be represented by
 
 The initial layer, $\mathbf{a}^{(0)}$, represents the input features for a particular observation, usually denoted by:
 
-$$
-\mathbf{a}^{(0)} = \mathbf{x}_i
-$$
+$$\mathbf{a}^{(0)} = \mathbf{x}_i$$
 
 Just like in logistic regression, the **activation function** applied at the final layer (L) (the output layer) is typically the sigmoid function when dealing with binary classification problems.
 
@@ -170,8 +157,7 @@ $i$ is refer to the ith bin/category
 
 - **Information Value (IV):** It is used to measure the predictive power of independent variables. It helps us understand which independent variables provide the most useful information about the target variable. IV is commonly used as a variable selection technique when the dependent variable (target) is binary, meaning it has only two possible values.
 
-$$
-\text{IV} = \sum_{i=1}^{n} \left( \text{WoE}_i \times \left( \% \text{ of non-events}_i - \% \text{ of events}_i \right) \right)$$
+$$\text{IV} = \sum_{i=1}^{n} \left( \text{WoE}_i \times \left( \% \text{ of non-events}_i - \% \text{ of events}_i \right) \right)$$
 
 So, **Weight of Evidence (WoE)** is important in credit modelling because we typically use **logistic regression**, which assumes a linear relationship between the **log-odds of the target variable** and the input features.
 
@@ -204,7 +190,6 @@ Many metrics that follow are defined from the **confusion matrix**:
 \end{tabular}
 \caption{Confusion Matrix}
 \end{table}
-
 \begin{enumerate}
     \item \textbf{Accuracy}: This is the overall percentage of correct predictions. It measures how many of the total predictions made by the model were correct, whether default or non-default.
 
@@ -340,8 +325,7 @@ The primary objective during model development was to improve the model's \textb
 
 The final logistic regression model obtained is and variables where scaled:
 
-$$
-\begin{aligned}
+$$\begin{aligned}
 \log\left(\frac{p}{1-p}\right) =\;& -0.4299 \\
 &-0.5754(\text{log\_annual\_income\_capped}) \\
 &+0.5387(\text{num\_delinquencies\_2yr}) \\
@@ -358,13 +342,11 @@ $$
 
 The estimated intercept of the model is:
 
-$$
-\beta_0 = -0.4299$$
+$$\beta_0 = -0.4299$$
 
 The odds ratios corresponding to each coefficient are shown below:
 
-$$
-\begin{array}{lcc}
+$$\begin{array}{lcc}
 \hline
 \textbf{Feature} & \textbf{Coefficient} & \textbf{Odds Ratio} \\
 \hline
@@ -418,15 +400,9 @@ The odds ratios describe the multiplicative change in the odds of default associ
 
 The current logistic regression model achieved an AUC of 0.79, outperforming the baseline logistic regression model (AUC = 0.68).
 
-* Absolute improvement: +0.11
+- Absolute improvement: +0.11
 
-=======
----
-title: "Credit Risk Modeling"
-author: "Munangiwa Gift Lithole"
-format: pdf
-editor: visual
----
+======= 31b8e172-b470-440e-83d8-e6b185028602:dAB5AHAAZQA6AFoAUQBBAHgAQQBEAGcAQQBNAFEAQQA1AEEARABZAEEATQBBAEEAMQBBAEMAMABBAE0AQQBCAGgAQQBHAE0AQQBaAEEAQQB0AEEARABRAEEAWgBnAEIAaABBAEcAVQBBAEwAUQBBADQAQQBHAEkAQQBPAFEAQQA1AEEAQwAwAEEATwBRAEIAagBBAEQARQBBAFkAZwBBADMAQQBHAEkAQQBaAEEAQQAzAEEARwBNAEEATQBBAEIAbQBBAEQARQBBAAoAcABvAHMAaQB0AGkAbwBuADoATQBnAEEAMwBBAEQAWQBBAE8AUQBBAHkAQQBBAD0APQAKAHAAcgBlAGYAaQB4ADoACgBzAG8AdQByAGMAZQA6AEwAUQBBAHQAQQBDADAAQQBDAGcAQgAwAEEARwBrAEEAZABBAEIAcwBBAEcAVQBBAE8AZwBBAGcAQQBDAEkAQQBRAHcAQgB5AEEARwBVAEEAWgBBAEIAcABBAEgAUQBBAEkAQQBCAFMAQQBHAGsAQQBjAHcAQgByAEEAQwBBAEEAVABRAEIAdgBBAEcAUQBBAFoAUQBCAHMAQQBHAGsAQQBiAGcAQgBuAEEAQwBJAEEAQwBnAEIAaABBAEgAVQBBAGQAQQBCAG8AQQBHADgAQQBjAGcAQQA2AEEAQwBBAEEASQBnAEIATgBBAEgAVQBBAGIAZwBCAGgAQQBHADQAQQBaAHcAQgBwAEEASABjAEEAWQBRAEEAZwBBAEUAYwBBAGEAUQBCAG0AQQBIAFEAQQBJAEEAQgBNAEEARwBrAEEAZABBAEIAbwBBAEcAOABBAGIAQQBCAGwAQQBDAEkAQQBDAGcAQgBtAEEARwA4AEEAYwBnAEIAdABBAEcARQBBAGQAQQBBADYAQQBDAEEAQQBjAEEAQgBrAEEARwBZAEEAQwBnAEIAbABBAEcAUQBBAGEAUQBCADAAQQBHADgAQQBjAGcAQQA2AEEAQwBBAEEAZABnAEIAcABBAEgATQBBAGQAUQBCAGgAQQBHAHcAQQBDAGcAQQB0AEEAQwAwAEEATABRAEEAPQAKAHMAdQBmAGYAaQB4ADoA:31b8e172-b470-440e-83d8-e6b185028602
 
 \section{What is Credit Risk}
 
@@ -482,9 +458,7 @@ we would run into serious problems. A linear model can produce any value between
 
 Instead of modeling the probability $p$ directly, we model the **odds**:
 
-$$
-\text{odds} = \frac{p}{1 - p}
-$$
+$$\text{odds} = \frac{p}{1 - p}$$
 
 where $p$ is the probability of the event occurring.
 
@@ -495,17 +469,13 @@ Odds can take any value from **0 to +∞**. However, this range is still not ide
 
 To solve this, we take the **natural logarithm** of the odds. This transformation gives us the **logit function** (also called log-odds):
 
-$$
-\text{logit}(p) = \ln\left(\frac{p}{1-p}\right)
-$$
+$$\text{logit}(p) = \ln\left(\frac{p}{1-p}\right)$$
 
 The logit function has a very useful property: it maps probabilities from (0, 1) to the entire real number line **(-∞, +∞)**. This makes it suitable for linear modeling.
 
 We can now assume a linear relationship between the **log-odds** and the independent variables (features):
 
-$$
-\ln\left(\frac{p}{1-p}\right) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_n x_n
-$$
+$$\ln\left(\frac{p}{1-p}\right) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_n x_n$$
 
 where:
 
@@ -514,15 +484,11 @@ where:
 
 We can rearrange the equation to express the probability \$ p \$ directly:
 
-$$
-p = \frac{1}{1 + e^{-(\beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_n x_n)}}
-$$
+$$p = \frac{1}{1 + e^{-(\beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_n x_n)}}$$
 
 This is known as the **sigmoid function** (or logistic function):
 
-$$
-\sigma(z) = \frac{1}{1 + e^{-z}}
-$$
+$$\sigma(z) = \frac{1}{1 + e^{-z}}$$
 
 where $z = \beta_0 + \beta_1 x_1 + \dots + \beta_n x_n$ is the linear combination of the features.
 
@@ -557,9 +523,7 @@ The structure of an artificial feed-forward neural network can be represented by
 
 The initial layer, $\mathbf{a}^{(0)}$, represents the input features for a particular observation, usually denoted by:
 
-$$
-\mathbf{a}^{(0)} = \mathbf{x}_i
-$$
+$$\mathbf{a}^{(0)} = \mathbf{x}_i$$
 
 Just like in logistic regression, the **activation function** applied at the final layer (L) (the output layer) is typically the sigmoid function when dealing with binary classification problems.
 
@@ -592,8 +556,7 @@ $i$ is refer to the ith bin/category
 
 - **Information Value (IV):** It is used to measure the predictive power of independent variables. It helps us understand which independent variables provide the most useful information about the target variable. IV is commonly used as a variable selection technique when the dependent variable (target) is binary, meaning it has only two possible values.
 
-$$
-\text{IV} = \sum_{i=1}^{n} \left( \text{WoE}_i \times \left( \% \text{ of non-events}_i - \% \text{ of events}_i \right) \right)$$
+$$\text{IV} = \sum_{i=1}^{n} \left( \text{WoE}_i \times \left( \% \text{ of non-events}_i - \% \text{ of events}_i \right) \right)$$
 
 So, **Weight of Evidence (WoE)** is important in credit modelling because we typically use **logistic regression**, which assumes a linear relationship between the **log-odds of the target variable** and the input features.
 
@@ -626,7 +589,6 @@ Many metrics that follow are defined from the **confusion matrix**:
 \end{tabular}
 \caption{Confusion Matrix}
 \end{table}
-
 \begin{enumerate}
     \item \textbf{Accuracy}: This is the overall percentage of correct predictions. It measures how many of the total predictions made by the model were correct, whether default or non-default.
 
@@ -762,8 +724,7 @@ The primary objective during model development was to improve the model's \textb
 
 The final logistic regression model obtained is and variables where scaled:
 
-$$
-\begin{aligned}
+$$\begin{aligned}
 \log\left(\frac{p}{1-p}\right) =\;& -0.4299 \\
 &-0.5754(\text{log\_annual\_income\_capped}) \\
 &+0.5387(\text{num\_delinquencies\_2yr}) \\
@@ -780,13 +741,11 @@ $$
 
 The estimated intercept of the model is:
 
-$$
-\beta_0 = -0.4299$$
+$$\beta_0 = -0.4299$$
 
 The odds ratios corresponding to each coefficient are shown below:
 
-$$
-\begin{array}{lcc}
+$$\begin{array}{lcc}
 \hline
 \textbf{Feature} & \textbf{Coefficient} & \textbf{Odds Ratio} \\
 \hline
@@ -840,7 +799,5 @@ The odds ratios describe the multiplicative change in the odds of default associ
 
 The current logistic regression model achieved an AUC of 0.79, outperforming the baseline logistic regression model (AUC = 0.68).
 
-* Absolute improvement: +0.11
-
->>>>>>> c60528b (Reorganize files into data, images, and notebooks directories)
-* Relative improvement: +16.18\% over the baseline
+- **Absolute improvement:** +0.11
+- **Relative improvement**: +16.18% over the baseline

@@ -4,15 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1bf895a-c55a-4849-801f-8cb495ce806c" name="Changes" comment="" />
+    <list default="true" id="f1bf895a-c55a-4849-801f-8cb495ce806c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/notebooks/Credit_Modeling.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/Credit_Modeling.ipynb" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true"
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "git-widget-placeholder": "mastery"
   }
 }]]></component>
   <component name="TaskManager">
